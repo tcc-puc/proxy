@@ -1,24 +1,13 @@
-# Here is the main part where we are actually implementing proxy.
-# (Technically we did it in default.conf)
-# This docker-compose.yml file will connect two external networks named site1 and site2 to the proxy.
-# The binding of port 80/443 of this proxy is implemented on the Docker host's port 80/443.
-# We already created our two docker containers for Webservice and we created two external docker networks with the name site1_default and site2_default.
-
 version: "2"
 services:
   proxy:
     build: ./
     networks:
-      - site1
-      - site2
+      - env_api
     ports:
       - "80:80"
-      - "443:443"
 
 networks:
-  site1:
+  env_api:
     external:
-      name: site1_default
-  site2:
-    external:
-      name: site2_default
+      name: api-env_default

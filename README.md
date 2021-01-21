@@ -23,3 +23,19 @@ run the container
 
 show all containers
 - docker ps -a
+
+listar as redes disponiveis de cada container
+- docker network ls
+
+ver config de rede de um container especifico
+- docker network inspect <container>
+
+### Config
+
+No arquivo /etc/hosts adicionar:
+
+```
+192.168.0.19 transparencia.bomdestino.com.br
+192.168.0.19 saude.bomdestino.com.br
+192.168.0.19 territorial.bomdestino.com.br
+```
