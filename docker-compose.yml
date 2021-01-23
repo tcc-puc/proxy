@@ -4,6 +4,7 @@ services:
     build: ./
     networks:
       - env_api
+      - frontend
     ports:
       - "80:80"
 
@@ -11,3 +12,6 @@ networks:
   env_api:
     external:
       name: api-env_default
+  frontend:
+    external:
+      name: site-prefeitura_default
